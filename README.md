@@ -29,7 +29,7 @@ The backend is implemented using Node.js and Express.js, with Sequelize as the O
 
 
   
-**Contributions are welcome! If you'd like to contribute to the project, kindly message me on toweh02@gmail**
+**Contributions are welcome! If you'd like to contribute to the project, kindly message me on toweh02@gmail.com**
 
 
 
