@@ -1,3 +1,5 @@
+**TO DO LIST**
+
 This repository contains the backend code for a simple to-do list application. 
 The backend is implemented using Node.js and Express.js, with Sequelize as the ORM for interacting with the PostgreSQL database.
 
