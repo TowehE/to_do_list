@@ -54,8 +54,40 @@ const validateUserLogin = (data) => {
 
 
 
+const validateCreateTodoList = (data) => {
+    try {
+        const validateSchema = joi.object({
+            title: joi.string().max(40).trim().regex(/^[\w\s]+$/).required().messages({
+                'string.pattern.base': "Title can only contain letters, numbers, and spaces",
+                'string.empty': "Title field can't be left empty",
+                'any.required': "Please enter a title"
+            }),
+            description: joi.string().min(8).trim().regex(/^[\w\s]+$/).required().messages({
+                'string.pattern.base': "Description can only contain letters, numbers, and spaces",
+                'string.empty': "Description field can't be left empty",
+                'string.min': "Description must be at least 8 characters long",
+                'any.required': "Please enter a description"
+            }),
+            dueDate: joi.string().trim().regex(/^\d{4}-\d{2}-\d{2}$/).required().messages({
+                'string.pattern.base': "Due date must be in the format YYYY-MM-DD",
+                'any.required': "Please enter a due date"
+            })
+        });
+
+        return validateSchema.validate(data);
+    } catch (err) {
+        return res.status(500).json({
+            Error: "Error while validating to-do list item: " + err.message,
+        });
+    }
+};
+
+
+
+
 module.exports = {
     validateUser,
     validateUserLogin,
+    validateCreateTodoList
 
 }

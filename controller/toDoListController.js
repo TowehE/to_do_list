@@ -1,6 +1,7 @@
 const { userModel } = require('../model/userModel');
 const { Sequelize, sequelize, Op } = require('sequelize');
 const { todoListModel } = require('../model/toDoListModel');
+const { validateCreateTodoList } = require('../helpers/validation');
 
 
 
@@ -13,6 +14,12 @@ const capitalizeFirstLetter = (str) => {
 //function to create a new task
 exports.createtodoList = async (req, res) => {
     try {
+        const {error} = validateCreateTodoList(req.body)
+        if (error) {
+            return res.status(500).json({
+                message: error.details[0].message
+            });
+        }
         const userId = req.user.userId;
         console.log(userId)
 
