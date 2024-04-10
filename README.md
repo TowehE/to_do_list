@@ -7,7 +7,6 @@ The backend is implemented using Node.js and Express.js, with Sequelize as the O
 - User authentication: Register, login, and manage user accounts securely.
 - Reset password functionality for users who forget their passwords.
 - Create, read, update, and delete (CRUD) operations for users.
-- Create, read, update, and delete (CRUD) operations for to do list tasks.
 - Create a new to do list task
 - Update an existing to do list task
 - Fetch all to do list tasks
